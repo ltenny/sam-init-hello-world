@@ -7,7 +7,12 @@ Resources:
   HelloWorld:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: HelloWorld
+      Description: Simple HelloWorld application
       Runtime: java11
       MemorySize: 512
       Handler: project.HelloWorld::handler
       CodeUri: target/lambda.zip
+      Environment:
+        Variables:
+          DATABASE_CONNECT_STRING: server=foo;db=bar

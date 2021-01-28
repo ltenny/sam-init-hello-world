@@ -1,0 +1,13 @@
+Notes
+-----
+aws cloudformation delete-stack --stack-name HeelloWorldLambdaJava
+
+# deploy the function, as a side-effect, a cloudformation stack is created (see template.yaml)
+sam deploy --s3-bucket staging.cheaperthandirt --stack-name HelloWorld --capabilities CAPABILITY_IAM
+ 
+# RequestResponse invocation of the function
+aws lambda invoke --cli-binary-format raw-in-base64-out --invocation-type RequestResponse --function-name HelloWorld --payload "\"cruel world\"" outputfile.txt
+
+# event invocation of the function
+aws lambda invoke --cli-binary-format raw-in-base64-out --invocation-type Event --function-name HelloWorld --payload "\"cruel world\"" outputfile.txt
+
