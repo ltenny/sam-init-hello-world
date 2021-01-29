@@ -15,4 +15,4 @@ Resources:
       CodeUri: target/lambda.zip
       Environment:
         Variables:
-          DATABASE_CONNECT_STRING: server=foo;db=bar
+          LOCATIONS_TABLE: server=foo;db=bar
